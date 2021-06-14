@@ -1,0 +1,30 @@
+.panel.home-panel
+    .panel-heading.row#home-page-header
+        .col
+            %h1.home-title TAWIS
+
+.panel
+    .panel-heading.row
+        .col
+            %h5 Watchlist
+            %hr
+    .panel-body.row
+        .col
+            = Cryptocompare::Price.find('DOGE', 'USD')
+        .col
+            = Cryptocompare::Price.find('ETH', 'USD')
+        .col
+            = Cryptocompare::Price.find('BTC', 'USD')
+        .col
+            = Cryptocompare::Price.find('ADA', 'USD')
+
+
+-# = simple_form_for :name do |stock|
+-#     = stock.input @selected_stock
+-#     = stock.button :submit, input_html: { class: 'btn btn-primary' }
+- @owned_stocks.each do |os|
+    .panel
+        = os.company_name
+        = os.symbol
+        = os.latest_price
+= render partial: "chart"
