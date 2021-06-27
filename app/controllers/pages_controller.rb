@@ -22,7 +22,7 @@ class PagesController < ApplicationController
       @chart_data << [@timestamps[@index], @points[@index]]
       @index += 1
     end
-    console
+    
   end
  
   private
