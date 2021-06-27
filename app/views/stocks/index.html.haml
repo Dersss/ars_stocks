@@ -1,0 +1,43 @@
+%h1 Listing stocks
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Symbol
+      %th Type
+      %th Price
+      %th Day open
+      %th Day close
+      %th Minute open
+      %th Minute close
+      %th Day high
+      %th Day low
+      %th Minute high
+      %th Minute low
+      %th
+      %th
+      %th
+
+  %tbody
+    - @stocks.each do |stock|
+      %tr
+        %td= stock.name
+        %td= stock.symbol
+        %td= stock.type
+        %td= stock.price
+        %td= stock.day_open
+        %td= stock.day_close
+        %td= stock.minute_open
+        %td= stock.minute_close
+        %td= stock.day_high
+        %td= stock.day_low
+        %td= stock.minute_high
+        %td= stock.minute_low
+        %td= link_to 'Show', stock
+        %td= link_to 'Edit', edit_stock_path(stock)
+        %td= link_to 'Destroy', stock, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Stock', new_stock_path

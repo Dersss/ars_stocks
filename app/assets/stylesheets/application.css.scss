@@ -31,6 +31,9 @@
     padding: 10px 15px;
     margin-bottom: 15px;
 }
+.apexcharts-tooltip, .apexcharts-tooltip-box, .apexcharts-xaxistooltip {
+    background: black;
+}
 hr {
     color:  #66FF66;
 }
@@ -44,4 +47,29 @@ hr {
  }
  .home-title {
     color: #66FF66;
+ }
+ .stock-info {
+     margin-left: 10%;
+ }
+ .stock-price {
+     color: #6CDAE7;
+ }
+ .increase-price {
+     color: green;
+     margin-left: 10%;
+ }
+ .decrease-price {
+     color: red;
+     margin-left: 10%;
+ }
+ .unavailable-text {
+     color: #FFFF66;
+ }
+
+ a, .btn {
+     color: white;
+ }
+
+ .navbar {
+     margin-bottom: 10px;
  }

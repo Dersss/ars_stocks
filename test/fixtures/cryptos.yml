@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  symbol: MyString
+  price: 1.5
+  day_open: 1.5
+  day_close: 1.5
+  minute_open: 1.5
+  minute_close: 1.5
+  day_high: 1.5
+  day_low: 1.5
+  minute_high: 1.5
+  minute_low: 1.5
+
+two:
+  name: MyString
+  symbol: MyString
+  price: 1.5
+  day_open: 1.5
+  day_close: 1.5
+  minute_open: 1.5
+  minute_close: 1.5
+  day_high: 1.5
+  day_low: 1.5
+  minute_high: 1.5
+  minute_low: 1.5

@@ -1,1 +1,6 @@
-= @stocks
+// Open, high, low, close
+.panel.stock-panel
+    %h4 
+        = @chosen_stock_data
+    %hr
+    = candlestick_chart(@chart_data.to_h, plotOptions: { candlestick: { wick: { useFillColor: true } } })

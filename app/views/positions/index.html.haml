@@ -1,0 +1,36 @@
+%h1 Positions
+
+%table.table.table-dark.table-striped
+  %thead
+    %tr
+      %th{:scope => "col"} Symbol
+      %th{:scope => "col"} Number of Positions
+      %th{:scope => "col"} Purchase Date
+      %th{:scope => "col"} Price
+      %th{:scope => "col"} Value
+      %th{:scope => "col"} Bought Price
+      %th{:scope => "col"} Day Change
+      %th{:scope => "col"} Minute Change
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+  %tbody
+    - @positions.each do |position|
+      %tr
+        %td= position.symbol
+        %td= position.number_of_positions
+        %td= position.purchase_date
+        %td= position.price
+        %td= position.value
+        %td= position.bought_price
+        %td= position.day_change
+        %td= position.minute_change
+        %td= link_to 'Show', position
+        %td= link_to 'Edit', edit_position_path(position)
+        %td= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+%hr
+= link_to 'New Position', new_position_path
+
+

@@ -1,0 +1,21 @@
+-# frozen_string_literal: true
+= simple_form_for(@stock) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :name
+    = f.input :symbol
+    = f.input :type
+    = f.input :price
+    = f.input :day_open
+    = f.input :day_close
+    = f.input :minute_open
+    = f.input :minute_close
+    = f.input :day_high
+    = f.input :day_low
+    = f.input :minute_high
+    = f.input :minute_low
+
+  .form-actions
+    = f.button :submit

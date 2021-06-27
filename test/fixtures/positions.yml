@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  symbol: MyString
+  number_of_positions: 1.5
+  purchase_date: 2021-06-22 20:22:25
+  price: 1.5
+  bought_price: 1.5
+  day_change: 1.5
+  minute_change: 1.5
+
+two:
+  symbol: MyString
+  number_of_positions: 1.5
+  purchase_date: 2021-06-22 20:22:25
+  price: 1.5
+  bought_price: 1.5
+  day_change: 1.5
+  minute_change: 1.5

@@ -25,9 +25,11 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+gem 'apexcharts'
 gem 'cryptocompare'
 gem "haml-rails", "~> 2.0"
 gem 'highstocks-rails', '~> 2.1', '>= 2.1.5'
+gem 'sidekiq'
 gem 'simple_form'
 gem "stock_quote", '~> 3.0.0'
 

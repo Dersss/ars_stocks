@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Symbol:
+  = @position.symbol
+%p
+  %b Number of positions:
+  = @position.number_of_positions
+%p
+  %b Price:
+  = @position.price
+%p
+  %b Value:
+  = @position.value
+%p
+  %b Bought price:
+  = @position.bought_price
+%p
+  %b Purchase date:
+  = @position.purchase_date
+%p
+  %b Day change:
+  = @position.day_change
+%p
+  %b Minute change:
+  = @position.minute_change
+
+= link_to 'Edit', edit_position_path(@position)
+\|
+= link_to 'Back', positions_path

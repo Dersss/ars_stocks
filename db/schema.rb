@@ -10,14 +10,69 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_11_022507) do
+ActiveRecord::Schema.define(version: 2021_06_24_015038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cryptos", force: :cascade do |t|
+    t.string "name"
+    t.string "symbol"
+    t.float "price"
+    t.float "day_open"
+    t.float "day_close"
+    t.float "minute_open"
+    t.float "minute_close"
+    t.float "day_high"
+    t.float "day_low"
+    t.float "minute_high"
+    t.float "minute_low"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "pages", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string "symbol"
+    t.float "number_of_positions"
+    t.datetime "purchase_date"
+    t.float "price"
+    t.float "bought_price"
+    t.float "day_change"
+    t.float "minute_change"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.float "value"
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.string "name"
+    t.string "symbol"
+    t.string "type"
+    t.float "price"
+    t.float "day_open"
+    t.float "day_close"
+    t.float "minute_open"
+    t.float "minute_close"
+    t.float "day_high"
+    t.float "day_low"
+    t.float "minute_high"
+    t.float "minute_low"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "wallet"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "type"
   end
 
 end

@@ -5,6 +5,11 @@
 
 //= require highstock
 
+// or
+// ES6
+import ApexCharts from 'apexcharts'
+window.ApexCharts = ApexCharts
+
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"

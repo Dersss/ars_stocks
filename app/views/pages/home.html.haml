@@ -3,28 +3,56 @@
         .col
             %h1.home-title TAWIS
 
-.panel
-    .panel-heading.row
-        .col
-            %h5 Watchlist
-            %hr
-    .panel-body.row
-        .col
-            = Cryptocompare::Price.find('DOGE', 'USD')
-        .col
-            = Cryptocompare::Price.find('ETH', 'USD')
-        .col
-            = Cryptocompare::Price.find('BTC', 'USD')
-        .col
-            = Cryptocompare::Price.find('ADA', 'USD')
+.row
+    .col-md-4
+        .panel
+            .row
+                .col-md-3
+                    %p Symbol
+                .col-md-3
+                    %p Price
+                .col-md-3
+                    %p Positions
+                .col-md-3
+                    %p Change
+            - @owned_stocks.each do |os|
+                .row
+                    .col-md-3.stock-symbol
+                        = os.symbol
+                    .col-md-3.stock-price
+                        = os.iex_realtime_price.to_s
+                    .col-md-3.stock-positions
+                        
+                    .col-md-3.stock-change
+                        - if (os.open && os.close)
+                            - if (1 - (os.open / os.close)) > 0
+                                .increase-price
+                                    = (1 - (os.open / os.close)).round(5).to_s + " %"
+                            - else 
+                                .decrease-price
+                                    = (1 - (os.open / os.close)).round(5).to_s + " %"
+                        - else
+                            %small.unavailable-text Unavailable
 
+    .col-md-8
+        .panel
+            .row
+                .col
+                    = Cryptocompare::Price.find('DOGE', 'USD').keys.first + " " + Cryptocompare::Price.find('DOGE', 'USD').values.first["USD"].to_s
+            .row
+                .col
+                    = Cryptocompare::Price.find('ETH', 'USD').keys.first + " " + Cryptocompare::Price.find('ETH', 'USD').values.first["USD"].to_s
+            .row
+                .col
+                    = Cryptocompare::Price.find('BTC', 'USD').keys.first + " " + Cryptocompare::Price.find('BTC', 'USD').values.first["USD"].to_s
+            .row
+                .col
+                    = Cryptocompare::Price.find('ADA', 'USD').keys.first + " " + Cryptocompare::Price.find('ADA', 'USD').values.first["USD"].to_s
+            .row
+                .col
+                    = Cryptocompare::Price.find('AMP', 'USD').keys.first + " " + Cryptocompare::Price.find('AMP', 'USD').values.first["USD"].to_s
 
 -# = simple_form_for :name do |stock|
 -#     = stock.input @selected_stock
 -#     = stock.button :submit, input_html: { class: 'btn btn-primary' }
-- @owned_stocks.each do |os|
-    .panel
-        = os.company_name
-        = os.symbol
-        = os.latest_price
-= render partial: "chart"
+

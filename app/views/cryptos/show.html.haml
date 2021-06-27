@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @crypto.name
+%p
+  %b Symbol:
+  = @crypto.symbol
+%p
+  %b Price:
+  = @crypto.price
+%p
+  %b Day open:
+  = @crypto.day_open
+%p
+  %b Day close:
+  = @crypto.day_close
+%p
+  %b Minute open:
+  = @crypto.minute_open
+%p
+  %b Minute close:
+  = @crypto.minute_close
+%p
+  %b Day high:
+  = @crypto.day_high
+%p
+  %b Day low:
+  = @crypto.day_low
+%p
+  %b Minute high:
+  = @crypto.minute_high
+%p
+  %b Minute low:
+  = @crypto.minute_low
+
+= link_to 'Edit', edit_crypto_path(@crypto)
+\|
+= link_to 'Back', cryptos_path
