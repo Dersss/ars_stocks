@@ -12,6 +12,15 @@ class PagesController < ApplicationController
   end
 
   def charts
+    @wish_data = StockQuote::Stock.chart("wish")
+    @wish = @wish_data.chart.pluck("updated")
+    @wish2 = @wish_data.chart.pluck( "open", "high", "low", "close")
+    @chart_data2 = []
+    @index2 = 0
+    while @chart_data2.length < @wish.length do
+      @chart_data2 << [@wish[@index2], @wish2[@index2]]
+      @index2 += 1
+    end
     @chosen_stock_data = 'DOGE'
     @cp = Cryptocompare::HistoMinute.find(@chosen_stock_data, 'USD').fetch("Data")
     @timestamps = @cp.pluck("time")

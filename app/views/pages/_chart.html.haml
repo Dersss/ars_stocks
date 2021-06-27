@@ -4,3 +4,8 @@
         = @chosen_stock_data
     %hr
     = candlestick_chart(@chart_data.to_h, plotOptions: { candlestick: { wick: { useFillColor: true } } })
+
+.panel.stock-panel
+    %h4 Wish
+    %hr
+    = candlestick_chart(@chart_data2.to_h, plotOptions: { candlestick: { wick: { useFillColor: true } } })
