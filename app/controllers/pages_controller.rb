@@ -12,17 +12,9 @@ class PagesController < ApplicationController
   end
 
   def charts
-    @wish_data = StockQuote::Stock.chart("wish")
-    @wish = @wish_data.chart.pluck("updated")
-    @wish2 = @wish_data.chart.pluck( "open", "high", "low", "close")
-    @chart_data2 = []
-    @index2 = 0
-    while @chart_data2.length < @wish.length do
-      # @wish[@index2] = Time.at(@wish[@index2])
-      @chart_data2 << [@wish[@index2], @wish2[@index2]]
-      @index2 += 1
-    end
-    @chosen_stock_data = 'ETH'
+    StockQuote::Stock.new(api_key: 'pk_12b5bfb9e9b14d7eb811366a1b940639')
+
+    @chosen_stock_data = 'DOGE'
     @cp = Cryptocompare::HistoMinute.find(@chosen_stock_data, 'USD').fetch("Data")
     @timestamps = @cp.pluck("time")
     @points = @cp.pluck("open", "high", "low", "close")
@@ -32,6 +24,18 @@ class PagesController < ApplicationController
       @timestamps[@index] = Time.at(@timestamps[@index]).to_datetime
       @chart_data << [@timestamps[@index], @points[@index]]
       @index += 1
+    end
+    
+
+    @wish_data = StockQuote::Stock.chart("blin")
+    @wish = @wish_data.chart.pluck("updated")
+    @wish2 = @wish_data.chart.pluck( "open", "high", "low", "close")
+    @chart_data2 = []
+    @index2 = 0
+    while @chart_data2.length < @wish.length do
+      # @wish[@index2] = Time.at(@wish[@index2])
+      @chart_data2 << [@wish[@index2], @wish2[@index2]]
+      @index2 += 1
     end
   end
 
