@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
 
-page = Nokogiri::HTML(URI.open('https://www.tradingview.com/markets/stocks-usa/market-movers-large-cap')
+page = Nokogiri::HTML(URI.open('https://www.tradingview.com/markets/stocks-usa/market-movers-large-cap'))
 
 table = page&.css('.tv-data-table')
 
